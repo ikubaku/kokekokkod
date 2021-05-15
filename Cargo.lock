@@ -893,6 +893,7 @@ version = "0.1.0"
 dependencies = [
  "chrono",
  "elefren",
+ "isolang",
  "reqwest 0.11.3",
  "serde",
  "tokio 1.6.0",

@@ -12,3 +12,4 @@ serde = { version = "1.0", features = ["derive"] }
 tokio = { version = "1", features = ["full"] }
 chrono = "0.4"
 elefren = { version = "0.22", features = ["toml"] }
+isolang = "1.0"
