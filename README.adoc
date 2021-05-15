@@ -1,0 +1,8 @@
+= kokekokkod
+
+My healthy-sleep monitoring service (daemon part)
+
+== Usage
+Run kokekokkod on the same computer where an instance of kokekokko-obniz( https://github.com/ikubaku/kokekokko-obniz ) is running.
+
+If you are running this for the first time, you need to authorize the kokekokkod to your mastodon account. Follow the instructions shown on the console.
