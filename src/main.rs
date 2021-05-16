@@ -57,21 +57,21 @@ fn post_status(mastodon: &Mastodon, event: Event) -> Result<(), Box<dyn std::err
     match event.kind {
         EventKind::WakeUp => {
             println!("WakeUp event");
-            /*mastodon.new_status(
+            mastodon.new_status(
                 StatusBuilder::new()
                     .status("おはよー")
                     .language(Language::Jpn)
                     .build()?
-            )?;*/
+            )?;
         },
         EventKind::StartSleeping => {
             println!("StartSleeping event");
-            /*mastodon.new_status(
+            mastodon.new_status(
                 StatusBuilder::new()
                     .status("おやすみー")
                     .language(Language::Jpn)
                     .build()?
-            )?;*/
+            )?;
         }
     };
     Ok(())
