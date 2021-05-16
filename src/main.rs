@@ -26,7 +26,7 @@ async fn get_data_from_obniz() -> Result<ObnizResponse, Box<dyn std::error::Erro
 fn update_and_check_status(ctx: &mut Context, res: ObnizResponse) -> Option<Event> {
     ctx.update_status(
         res.get_datetime(),
-        if res.is_heavier_than(-7500000.0) {
+        if res.is_heavier_than(-7800000.0) {
             StatusKind::Sleeping
         } else {
             StatusKind::Awake
