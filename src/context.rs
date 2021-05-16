@@ -1,7 +1,7 @@
 use chrono::prelude::*;
 use chrono::Duration;
 
-const DURATION_THRESHOLD_MIN: i64 = 10;
+const DURATION_THRESHOLD_MIN: i64 = 30;
 
 #[derive(PartialEq, Clone)]
 pub enum SensorStatusKind {
