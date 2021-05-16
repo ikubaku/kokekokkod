@@ -11,7 +11,7 @@ mod obniz;
 use obniz::ObnizResponse;
 
 mod context;
-use context::{Context, StatusKind, EventKind, Event};
+use context::{Context, SensorStatusKind, EventKind, Event};
 use crate::obniz::Status;
 
 async fn get_data_from_obniz() -> Result<ObnizResponse, Box<dyn std::error::Error>> {
@@ -27,9 +27,9 @@ fn update_and_check_status(ctx: &mut Context, res: ObnizResponse) -> Option<Even
     ctx.update_status(
         res.get_datetime(),
         if res.is_heavier_than(-7800000.0) {
-            StatusKind::Sleeping
+            SensorStatusKind::Sleeping
         } else {
-            StatusKind::Awake
+            SensorStatusKind::Awake
         }
     );
     ctx.read_change()
@@ -55,18 +55,24 @@ fn register() -> Result<Mastodon, Box<dyn std::error::Error>> {
 
 fn post_status(mastodon: &Mastodon, event: Event) -> Result<(), Box<dyn std::error::Error>> {
     match event.kind {
-        EventKind::WakeUp => mastodon.new_status(
+        EventKind::WakeUp => {
+            println!("WakeUp event");
+            /*mastodon.new_status(
                 StatusBuilder::new()
                     .status("おはよー")
                     .language(Language::Jpn)
                     .build()?
-        )?,
-        EventKind::StartSleeping => mastodon.new_status(
-            StatusBuilder::new()
-                .status("おやすみー")
-                .language(Language::Jpn)
-                .build()?
-        )?
+            )?;*/
+        },
+        EventKind::StartSleeping => {
+            println!("StartSleeping event");
+            /*mastodon.new_status(
+                StatusBuilder::new()
+                    .status("おやすみー")
+                    .language(Language::Jpn)
+                    .build()?
+            )?;*/
+        }
     };
     Ok(())
 }
